@@ -1,0 +1,5 @@
+# vim: ft=yaml
+# Defaults for users
+
+users:
+  enabled: false

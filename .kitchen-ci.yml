@@ -1,0 +1,32 @@
+# vim: ft=yaml
+---
+driver:
+  name: linode
+
+busser:
+  sudo: false
+
+provisioner:
+  name: salt_solo
+  formula: users
+  sudo: false
+  state_top:
+    base:
+      "*":
+        - users
+
+platforms:
+  - name: debian_jessie
+
+suites:
+  - name: default
+
+  - name: custom
+    provisioner:
+      pillars-from-files:
+        users.sls: pillar-custom.sls
+      pillars:
+        top.sls:
+          base:
+            "*":
+              - users

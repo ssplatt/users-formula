@@ -1,0 +1,12 @@
+{%- if google2fa.secretkey is defined -%}
+{{ google2fa.secretkey }}
+{%- endif %}
+" RATE_LIMIT 3 30
+" WINDOW_SIZE 17
+" DISALLOW_REUSE
+" TOTP_AUTH
+{%- if google2fa.scratchcodes is defined -%}
+{%- for code in google2fa.scratchcodes %}
+{{ code }}
+{%- endfor %}
+{%- endif -%}
